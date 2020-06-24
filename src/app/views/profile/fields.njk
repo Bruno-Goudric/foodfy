@@ -1,0 +1,16 @@
+<div class="field-item">
+  <label for="name">Nome</label>
+  <input type="text" name="name" required="required" value="{{ user.name }}">
+</div>
+
+<div class="field-item">
+  <label for="name">Email</label>
+  <input type="email" name="email" required="required" value="{{ user.email }}">
+</div>
+
+<div class="field-item">
+  <label for="password">Password</label>
+  <input type="password" name="password" required="required">
+</div>
+
+<input type="hidden" name="id" value="{{ user.id }}">

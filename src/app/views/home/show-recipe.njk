@@ -1,0 +1,106 @@
+{% extends '_parts/layout.njk' %}
+
+{% block head %}
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/recipe.css">
+{% endblock head %}
+
+{% import '_parts/card.njk' as card %}
+
+{% block content %}
+
+  {% call card.render('container', 'regular') %}
+
+  <div class="form-header">
+    <h3>Receita:
+      {{recipe.title}}</h3>
+    {% if session.userId == recipe.user_id or session.isAdmin %}
+      <a href="/admin/recipes/{{recipe.id}}/edit" class="button">Editar Receita</a>
+    {% endif %}
+  </div>
+  
+  <img class="image-detail" {% if recipe.files | length > 0  %} src="{{recipe.files[0].src}}" alt="{{recipe.title}}" {% endif %}>
+
+  <div class="image-preview">
+    {% for image in recipe.files %}
+      <img src="{{image.src}}" alt="{{image.name}}">
+    {% endfor %}
+  </div>
+
+  <section class="details">
+    <h1 class="detail-title">{{recipe.title}}</h1>
+    <p class="detail-author">Por {{recipe.author.name}}</p>
+
+    <div class="detail-item">
+      <div class="detail-item-title">
+        <h3>Ingredientes</h3>
+        <span class="toggle-item" data="ingredients">Esconder</span>
+      </div>
+
+      <div id="ingredients">
+        <ul>
+          {% for ingredient in recipe.ingredients %}
+            <li>{{ingredient}};</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="detail-item">
+      <div class="detail-item-title">
+        <h3>Modo de preparo</h3>
+        <span class="toggle-item" data="howToPrepare">Esconder</span>
+      </div>
+
+      <div id="howToPrepare">
+        <ul>
+          {% for step in recipe.preparation %}
+            <li>{{step}};</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="detail-item">
+      <div class="detail-item-title">
+        <h3>Informações adicionais</h3>
+        <span class="toggle-item" data="additionalInfo">Esconder</span>
+      </div>
+
+      <div id="additionalInfo">
+        {{recipe.information}}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const mainImage = document.querySelector('img.image-detail');
+    mainImage.style.transition = 'all 2s';
+    const images = document.querySelectorAll('.image-preview img');
+    restAll();
+    images.forEach(image => {
+      image.addEventListener('click', (event) => {
+        mainImage.src = event.target.src;
+        event.target.style.opacity = 1;
+        restAll();
+      });
+    });
+    function restAll() {
+      document
+        .querySelectorAll('.image-preview img')
+        .forEach(image => {
+          image.style.transition = 'all 2s';
+          if (mainImage.src == image.src) 
+            image.style.opacity = 1;
+          else 
+            image.style.opacity = 0.5;
+          }
+        );
+    }
+  </script>
+
+  {# <script src="/js/script.js"></script> #}
+
+  {% endcall %}
+
+{% endblock content %}

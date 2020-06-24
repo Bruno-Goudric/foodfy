@@ -1,0 +1,255 @@
+div.forms form input.button,
+.form-header a.button {
+  top: 0;
+  right: 0;
+  position: absolute;
+}
+
+div.forms form input.button.button-red {
+  position: absolute;
+  top: 0;
+  right: 150px;
+}
+
+.image-detail {
+  height: 280px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  background-color: #eee;
+}
+
+.details {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.detail-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 42px;
+}
+
+.detail-author {
+  font-size: 20px;
+  color: #777;
+  text-align: center;
+  line-height: 24px;
+  margin-top: 4px;
+}
+
+.detail-item {
+  margin-bottom: 40px;
+}
+
+.detail-item-title {
+  display: flex;
+  align-items: baseline;
+}
+
+.toggle-item {
+  font-size: 12px;
+  color: #999999;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.detail-item-title h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.detail-item div:nth-child(2),
+.detail-item div:nth-child(2) ul li {
+  font-size: 18px;
+  color: #444;
+  line-height: 28px;
+}
+
+.detail-item > div ul li {
+  list-style: inside;
+}
+
+.detail-hide {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.view.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 20px;
+  align-items: flex-start;
+}
+
+.view.list .item {
+  display: grid;
+  max-height: 80px;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "img title" "img author" "img url";
+}
+
+.view.list .item img {
+  grid-area: img;
+  height: 80px;
+  width: 172px;
+  max-width: 172px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.view.list .item h4 {
+  grid-area: title;
+  font-size: 18px;
+  color: #111111;
+  line-height: 21px;
+}
+
+.view.list .item span {
+  grid-area: author;
+  font-size: 14px;
+  color: #777777;
+}
+
+.view.list .item a {
+  grid-area: url;
+  align-self: end;
+  font-weight: bold;
+  font-size: 14px;
+  color: #6558C3;
+}
+
+
+
+/* Imagem upload */
+
+
+.photos-container {
+  display: flex;
+  height: 150px;
+  flex-direction: row;
+  margin-top: 12px;
+}
+
+.field-item #photos-upload {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 220px;
+}
+
+.field-item #photos-upload p {
+  width: 150px;
+  height: 150px;
+
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px -6px #333;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.field-item #photos-upload p i {
+  font-size:38px;
+  color: #777777;
+}
+
+.field-item #photos-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.field-item #photos-preview {
+  display: grid;
+  grid-template-columns: repeat(5, 150px);
+  gap: 8px;
+  width: 100%;
+  /* margin: 8px 0;  */
+}
+
+.field-item #photos-preview img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px -4px #ddd;
+}
+
+#photos-preview .photo {
+  position: relative;
+}
+
+#photos-preview .photo i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: 100%;
+  color: #ff0000;
+  
+  cursor: pointer;
+  /* align-items: flex-start;
+  justify-content: flex-end; */
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  opacity: 0; 
+  border-radius: 4px;
+  transition: opacity 200ms;
+}
+
+#photos-preview .photo:hover i {
+  opacity: 1;
+}
+
+.image-preview {
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.image-preview img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  max-width: 100%;
+  opacity: 0.5;
+  border: 1px solid #DDDDDD;
+  border-radius: 3.5px;
+  transition: opacity 200ms;
+  cursor: pointer;
+}
+
+.image-preview img + img {
+  margin-left: 10px;
+}
+
+
+.image-preview img:hover {
+  opacity: 1;
+}
+
+.image-detail {
+  transition: all 500ms;
+}

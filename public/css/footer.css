@@ -1,0 +1,28 @@
+#footer {
+    margin-top: auto;
+  }
+  
+  div.pagination {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: auto;
+  }
+  
+  div.pagination a,
+  div.pagination span {
+    margin-right: 16px;
+    color: #6558C3;
+  }
+  
+  
+  .footer {
+    height: 62.08px;
+    background-color: #eeeeee;
+    font-size: 14px;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

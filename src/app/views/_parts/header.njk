@@ -1,0 +1,54 @@
+<header class="header">
+  <div class="container">
+    <a class="logo" href="/">
+      <img src="../../assets/logo.png" alt="Foodfy" id="logo">
+    </a>
+    <label for="toggle">&#9776;</label>
+    <input type="checkbox" id="toggle"/>
+    <nav class="menu">
+      <ul>
+        <li>
+          <a href="/about">Sobre</a>
+        </li>
+        <li>
+          <a href="/home/recipes">Receitas</a>
+        </li>
+        <li>
+          <a href="/home/chefs">Chefs</a>
+        </li>
+        <li class="dropdown-container" id="logout">
+          <a href="/admin/profile">
+            <i class="material-icons">account_circle</i> Minha Conta
+          </a>
+          {% if session.userId %}
+            <ul class="dropdown">
+              <li>
+                <a href="/admin/profile">Minha Conta</a>
+              </li>
+              <li>
+                <a href="/admin/recipes?owner={{session.userId}}">Minhas Receitas</a>
+              </li>
+              <li>
+                <a href="/admin/recipes">Area Administrativa</a>
+              </li>
+              {% if session.isAdmin %}
+                <li>
+                  <a href="/admin/users">Usuários</a>
+                </li>
+              {% endif %}
+              <li>
+                <a href="/session/logout">Sair</a>
+              </li>
+            </ul>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+    <div class="search">
+      <form action="/home/recipes" method="get">
+        <input type="text" name="search" placeholder="Busque uma receita">
+        <input type="submit" value="Buscar" class="button">
+      </form>
+    </div>
+  </div>
+</header>

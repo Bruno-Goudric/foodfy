@@ -1,0 +1,25 @@
+{% extends '_parts/layout.njk' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/css/recipe.css">
+{% endblock head %}
+
+{% import '_parts/card.njk' as card %}
+
+{% block content %}
+
+    {% call card.render('container', 'admin')%}
+    <div class="form-header">
+
+        <h3>Criando Receitas</h3>
+        <div class="forms">
+            <form action="/admin/recipes" method="post" enctype="multipart/form-data">
+                <input type="submit" value="Salvar Receita" class="button">
+                {% include './fields.njk' %}
+            </form>
+        </div>
+    </div>
+
+    {% endcall %}
+
+{% endblock content %}

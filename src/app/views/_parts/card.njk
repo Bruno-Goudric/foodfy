@@ -1,0 +1,7 @@
+{% macro render(classes, header, session) %}
+
+  <section class="{{classes}}">
+    {{ caller() }}
+  </section>
+
+{% endmacro %}

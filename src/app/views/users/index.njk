@@ -1,0 +1,60 @@
+{% extends '_parts/layout.njk' %}
+
+{% block head %}
+  <link rel="stylesheet" href="/css/users.css">
+{% endblock head %}
+
+{% import '_parts/card.njk' as card %}
+
+{% block content %}
+
+  {% call card.render('container', 'admin')%}
+  <div class="view">
+    <h3>Gerenciar Usuários</h3>
+    <a href="/admin/users/create" class="button">Novo Usuário</a>
+  </div>
+
+  <div class="view list">
+    {% for user in users %}
+
+      <div class="item">
+
+        <h4>{{user.name}}</h4>
+        <span>{{user.email}}</span>
+        <div class="buttons">
+          <a href="/admin/users/{{user.id}}/edit">Editar</a>
+          <form action="/admin/users?_method=DELETE" method="post" class="form-delete">
+            <input type="submit" value="Deletar">
+            <input type="hidden" name="id" value="{{user.id}}">
+          </form>
+        </div>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+  <script>
+    const formDeletes = document.querySelectorAll('.form-delete');
+    formDeletes.forEach(formDelete =>
+    {
+      formDelete.addEventListener('submit', function (event) 
+      {
+          const confirmation = confirm('Você tem certeza que deseja deletar?');
+          if (!confirmation) 
+              event.preventDefault();
+      });
+    });
+  </script>
+
+  {# <div class="pagination"
+      data-page={{pagination.page}}
+      data-total={{pagination.total}}
+      data-search={{pagination.search}}>
+  </div>
+  <script src="/js/pagine.js"></script> #}
+
+  {% endcall %}
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+<div class="field-item">
+    <label for="name">Nome do Chef</label>
+    <input type="text" name="name" required="required" value="{{chef.name}}">
+</div>
+
+<div class="field-item">
+    <label for="avatar_url">Avatar</label>
+    {% if chef.avatar %}
+        <input type="text" name="avatar" required="required" value="{{chef.avatar.src}}">
+    {% endif %}
+    <div id="photos-upload">
+        <input type="file" name="photos" id="photos-input" accept="image/*">
+        <p>
+            Enviar Avatar
+        </p>
+    </div>
+
+</div>
+
+<input type="hidden" name="id" value="{{chef.id}}">

@@ -1,0 +1,128 @@
+.form-header.user-create {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: relative; */
+  }
+  
+  .fields-container {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    max-width: 100%;
+    column-gap: 40px;
+    row-gap: 30px;
+  }
+  
+  .buttons {
+    display: flex;
+  }
+  
+  .buttons input, 
+  .buttons a {
+    width: 140px;
+    height: 37px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .buttons input {
+    background-color: #6558C3;
+  }
+  
+  .buttons a {
+    margin-left: 16px;
+    background-color:  #8A8A8A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .buttons a:hover {
+    opacity: 0.8;
+  }
+  
+  .field-item label {
+    margin-top: 0;
+  }
+  
+  .field-item input[type="checkbox"] {
+    font-size: initial;
+    display: initial;
+    height: initial;
+    width: initial;
+    margin-right: 8px;
+  }
+  
+  .field-item:nth-child(3) label {
+    display: initial;
+    width: initial;
+  }
+  
+  .view.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 50px;
+    column-gap: 20px;
+  }
+  
+  .item{
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .item h4 {
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+  }
+  
+  .item span {
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    color: #777777;
+    margin-top: 4px;
+  }
+  
+  .item a,
+  .item form input {
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    background: none;
+    color: #6558C3;
+    width: initial;
+    height: initial;
+    margin-left: 0;
+    margin-top: 16px;
+    margin-right: 16px;
+  }
+  
+  .item form input {
+    color: #F55A5A;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .item form input[type="submit"]:hover {
+    opacity: 0.9;
+  } 
+  
+  .form-header.edit {
+    position: relative;
+  }
+  
+  .form-header.edit input[type="submit"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  .form-header.edit input.button-red {
+    position: absolute;
+    top: 0;
+    right: 150px;
+  }

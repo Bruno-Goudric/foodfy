@@ -1,0 +1,46 @@
+{% extends '_parts/layout.njk' %}
+
+{% block head %}
+  <link rel="stylesheet" href="/css/chefs.css">
+{% endblock head %}
+
+{% import '_parts/card.njk' as card %}
+
+{% block content %}
+
+  {% call card.render('container', 'admin')%}
+
+  <div class="form-header">
+    <h3>Chef:
+      {{chef.name}}</h3>
+    <a href="/admin/chefs/{{chef.id}}/edit" class="button">Editar Chef</a>
+  </div>
+  <img class="image-detail" {% if chef.avatar.src | length > 0 %} src="{{chef.avatar.src}}" alt="{{chef.name}}" {% endif %}>
+  <h1>{{chef.name}}</h1>
+  {% if chef.recipes.length > 0 %}
+    <p>{{chef.recipes.length}}
+      receitas</p>
+  {% else %}
+    <p>Nenhuma receita</p>
+  {% endif %}
+
+  <h2>Receitas</h2>
+
+  <section class="recipes">
+
+    {% for recipe in chef.recipes %}
+      <div class="recipes item">
+        <img src="{{recipe.image.src}}" alt="{{recipe.name}}">
+
+        <p>{{recipe.title}}</p>
+
+        <span>Por
+          {{chef.name}}</span>
+        <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
+      </div>
+    {% endfor %}
+
+  </section>
+
+  {% endcall %}
+{% endblock content %}
